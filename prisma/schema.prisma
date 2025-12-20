@@ -30,5 +30,5 @@ model BarbershopService {
   imageUrl     String
   priceInCents Int
   barbershopId String
-  barbershop   Barbershop @relation(fields: [barbershopId], references: [id])
+  barbershop   Barbershop @relation(fields: [barbershopId], references: [id], onDelete: Cascade)
 }
