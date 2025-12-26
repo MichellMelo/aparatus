@@ -11,6 +11,7 @@ import {
   PageSectionTitle,
 } from "@/components/ui/page";
 import Footer from "@/components/footer";
+import QuickSearch from "../components/quick-search";
 
 export default async function Home() {
   const barbershops = await getBarbershops();
@@ -18,6 +19,7 @@ export default async function Home() {
   return (
     <div>
       <Header />
+      <QuickSearch />
       <PageContainer>
         <Image
           className="h-auto w-full"
