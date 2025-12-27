@@ -10,7 +10,6 @@ import {
   PageSectionScroller,
   PageSectionTitle,
 } from "@/components/ui/page";
-import Footer from "@/components/footer";
 import QuickSearch from "../components/quick-search";
 
 export default async function Home() {
@@ -19,8 +18,8 @@ export default async function Home() {
   return (
     <div>
       <Header />
-      <QuickSearch />
       <PageContainer>
+        <QuickSearch />
         <Image
           className="h-auto w-full"
           src={banner}
