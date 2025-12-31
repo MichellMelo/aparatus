@@ -13,10 +13,15 @@ const getBarbershops = async () => {
 export default getBarbershops;
 
 export const getPopularBarbershops = async () => {
-  const popularBarbershops = await prisma.barbershop.findMany({
-    orderBy: {
-      name: "desc",
-    },
-  });
-  return popularBarbershops;
+  try {
+    const popularBarbershop = await prisma.barbershop.findMany({
+      orderBy: {
+        name: "desc",
+      },
+    });
+    return popularBarbershop;
+  } catch (error) {
+    console.error("error popular barbershop", error);
+    return [];
+  }
 };

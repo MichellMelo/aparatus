@@ -42,7 +42,7 @@ export default async function Home() {
         <PageSectionContent>
           <PageSectionTitle>Barbearias Populares</PageSectionTitle>
           <PageSectionScroller>
-            {popularBarbershops.map((barbershop) => (
+            {barbershops.map((barbershop) => (
               <BarbershopItem key={barbershop.id} barbershop={barbershop} />
             ))}
           </PageSectionScroller>
