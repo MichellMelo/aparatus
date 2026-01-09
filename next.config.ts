@@ -10,6 +10,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        // aplica a todos os caminhos; ajuste se quiser restringir
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Permissions-Policy",
+            value: "clipboard-read=(self), clipboard-write=(self)",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

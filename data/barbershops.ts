@@ -25,3 +25,37 @@ export const getPopularBarbershops = async () => {
     return [];
   }
 };
+
+export const getBarbershopsById = async (id: string) => {
+  const barbershop = await prisma.barbershop.findUnique({
+    where: { id },
+    include: {
+      services: true,
+    },
+  });
+  return barbershop;
+};
+
+export const getBarbershopsByServiceName = async (serviceName: string) => {
+  try {
+    const barbershops = await prisma.barbershop.findMany({
+      where: {
+        services: {
+          some: {
+            name: {
+              contains: serviceName,
+              mode: "insensitive",
+            },
+          },
+        },
+      },
+      include: {
+        services: true,
+      },
+    });
+    return barbershops;
+  } catch (error) {
+    console.error("Error fetching barbershops by service name", error);
+    return [];
+  }
+};
